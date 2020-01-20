@@ -106,7 +106,7 @@ var draw = (function () {
       ctx.save();
     },
 
-    //Draw a circle
+    // CIRCLE
     drawCircle: function () {
 
       ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -122,7 +122,7 @@ var draw = (function () {
       ctx.fill();
     },
 
-    //Draw a line
+    // LINE
     drawLine: function () {
       //Start by using random fill colors.
       ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -132,7 +132,7 @@ var draw = (function () {
       ctx.stroke();
     },
 
-    //Draw a triangle
+    // TRIANGLE
     drawTriangle: function () {
       //Start by using random fill colors.
       ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -145,6 +145,7 @@ var draw = (function () {
       ctx.fill();
     },
 
+    // PATH
     drawPath: function () {
       //console.log({x1:x,y1:y,x2:x2,y2:y2});
       //Start by using random fill colors.
@@ -155,6 +156,7 @@ var draw = (function () {
       ctx.stroke();
     },
 
+    // RECTANGLE
     //Draw a rectangle
     drawRect: function () {
       //Start by using random fill colors.
@@ -180,6 +182,9 @@ var draw = (function () {
 //Initialize draw
 draw.init();
 
+
+// MOUSE MOVEMENTS
+
 //Add a mousemove listener to the canvas
 //When the mouse reports a change of position use the event data to
 //set and report the x,y position on the mouse.
@@ -193,6 +198,7 @@ draw.getCanvas().addEventListener('mousemove', function (evt) {
 
 //Add a mousedown listener to the canvas
 //Set the starting position
+// FOR RECTANGLE
 draw.getCanvas().addEventListener('mousedown', function () {
   draw.setStart();
   draw.setIsDrawing(true);
@@ -200,11 +206,26 @@ draw.getCanvas().addEventListener('mousedown', function () {
 
 //Add a mouseup listener to the canvas
 //Set the end position and draw the rectangle
+// FOR RECTANGLE
 draw.getCanvas().addEventListener('mouseup', function () {
   draw.setEnd();
   draw.draw();
   draw.setIsDrawing(false);
 }, false);
+
+//Make for triangle
+draw.getCanvas().addEventListener('mouseup', function () {
+  draw.setEnd();
+  draw.draw();
+  draw.setIsDrawing(false);
+}, false);
+
+draw.getCanvas().addEventListener('mousedown', function () {
+  draw.setStart();
+  draw.setIsDrawing(true);
+}, false);
+
+// CLICK EVENTS
 
 document.getElementById('btnRect').addEventListener('click', function () {
   draw.setShape('rectangle');
@@ -225,3 +246,15 @@ document.getElementById('btnPath').addEventListener('click', function () {
 document.getElementById('btnTriangle').addEventListener('click', function () {
   draw.setShape('triangle');
 }, false);
+
+
+
+//$('btnTriangle').click(function() { /* handle click event */ });
+//$('btnTriangle').mouseenter(function() {  /* handle click event */ });
+//$(document).keyup(function() {  /* handle key up event */  });
+
+//$(function() {
+ // $('btnTriangle').on('click', function(){
+    
+ // })
+//})
