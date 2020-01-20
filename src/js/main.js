@@ -141,7 +141,6 @@ var draw = (function () {
       ctx.moveTo(x1, y1);
       ctx.lineTo(x1, y2);
       ctx.lineTo(x2, y2);
-      ctx.closedPath();
       ctx.stroke();
       ctx.fill();
     },
