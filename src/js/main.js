@@ -157,6 +157,7 @@ var draw = (function () {
     },
 
     // RECTANGLE
+    //Draw a rectangle
     drawRect: function () {
       //Start by using random fill colors.
       ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -242,7 +243,7 @@ document.getElementById('btnPath').addEventListener('click', function () {
   draw.setShape('path');
 }, false);
 
-document.getElementById('#btnTriangle').addEventListener('click', function () {
+document.getElementById('btnTriangle').addEventListener('click', function () {
   draw.setShape('triangle');
 }, false);
 
