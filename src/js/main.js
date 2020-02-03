@@ -141,6 +141,7 @@ var draw = (function () {
       ctx.moveTo(x1, y1);
       ctx.lineTo(x1, y2);
       ctx.lineTo(x2, y2);
+      ctx.lineTo(x1, y1);
       ctx.stroke();
       ctx.fill();
     },
@@ -247,14 +248,11 @@ document.getElementById('btnTriangle').addEventListener('click', function () {
   draw.setShape('triangle');
 }, false);
 
-
-
 //$('btnTriangle').click(function() { /* handle click event */ });
 //$('btnTriangle').mouseenter(function() {  /* handle click event */ });
 //$(document).keyup(function() {  /* handle key up event */  });
 
 //$(function() {
  // $('btnTriangle').on('click', function(){
-    
  // })
 //})
