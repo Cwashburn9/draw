@@ -136,6 +136,7 @@ var draw = (function () {
     drawTriangle: function () {
       //Start by using random fill colors.
       ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
       //ctx.fillRect(x1, y1, (x1 - y2), (x2 - y2));
       ctx.beginPath();
       ctx.moveTo(x1, y1);
@@ -161,6 +162,7 @@ var draw = (function () {
     drawRect: function () {
       //Start by using random fill colors.
       ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
       ctx.fillRect(x1, y1, (x2 - x1), (y2 - y1));
     },
 
@@ -255,6 +257,6 @@ document.getElementById('btnTriangle').addEventListener('click', function () {
 
 //$(function() {
  // $('btnTriangle').on('click', function(){
-    
+
  // })
 //})
