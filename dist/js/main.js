@@ -3,38 +3,50 @@ var draw = (function () {
   //Get the height and width of the main we will use this set canvas to the full
   //size of the main element.
   var mWidth = document.querySelector('main').offsetWidth,
-    mHeight = document.querySelector('main').offsetHeight,
 
-    //Create the canvas
-    canvas = document.createElement("canvas"),
+  var mHeight = document.querySelector('main').offsetHeight,
 
-    //Create the context
-    ctx = canvas.getContext("2d"),
+  //Create the canvas
+  var canvas = document.createElement("canvas"),
 
-    //Create the initial bounding rectangle
-    rect = canvas.getBoundingClientRect(),
+  //Create the context
+  var ctx = canvas.getContext("2d"),
 
-    //current x,y position
-    x = 0,
-    y = 0,
+  //Create the initial bounding rectangle
+  var rect = canvas.getBoundingClientRect(),
 
-    //starting x,y
-    x1 = 0,
-    y1 = 0,
+  //current x,y position
+  var x = 0,
 
-    //ending x,y
-    x2 = 0,
-    y2 = 0,
+  var y = 0,
 
-    //Tracks the last x,y state
-    lx = false,
-    ly = false,
+  //starting x,y
+  var x1 = 0,
 
-    //What shape are we drawing?
-    shape = '',
+  var y1 = 0,
 
-    //Are we drawimg a path?
-    isDrawing = false;
+  //ending x,y
+  var x2 = 0,
+
+  var y2 = 0,
+
+
+  //Tracks the last x,y state
+  var lx = false,
+
+  var ly = false,
+
+  //What shape are we drawing?
+  var shape = '',
+
+  //Are we drawimg a path?
+  var isDrawing = false;
+
+  //stroke color
+  var stroke = '';
+
+  //fill color
+  var fill = '';
 
   return {
 
@@ -84,6 +96,41 @@ var draw = (function () {
     getIsDrawing: function () {
       return isDrawing;
     },
+
+    //Set a random color
+    randColor: function () {
+      return '#' + Math.floor(Math.random() * 16777215).toString(16);
+    },
+
+    //A setter for stroke
+    setStrokeColor: function (color) {
+      stroke = color;
+    },
+
+    //A setter for fill
+    setFillColor: function (color) {
+      fill = color;
+    },
+
+    //A getter for stroke
+    getStrokeColor: function () {
+
+      if (stroke.length > 6) {
+        return stroke;
+      }
+
+      return this.randColor();
+    },
+
+    // //A getter for fill
+    // getFillColor: function () {
+
+    //   if (fill.length > 6) {
+    //     return fill;
+    //   }
+
+    //   return this.randColor();
+    // },
 
     //Draws the selected shape
     draw: function () {
@@ -157,14 +204,11 @@ var draw = (function () {
       ctx.stroke();
     },
 
-    // RECTANGLE
     //Draw a rectangle
     drawRect: function () {
-      //Start by using random fill colors.
-      ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
-      ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      ctx.fillStyle = this.getFillColor();
+      ctx.strokeStyle = this.getStrokeColor();
       ctx.fillRect(x1, y1, (x2 - x1), (y2 - y1));
-      ctx.stroke();
     },
 
     getCanvas: function () {

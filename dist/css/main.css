@@ -25,7 +25,8 @@ nav ul li span,
 nav ul li button {
   display: block;
   padding: 1em;
-  text-align: center; }
+  text-align: center;
+}
 
 nav ul li button {
   width: 100%; }
