@@ -164,6 +164,7 @@ var draw = (function () {
       ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
       ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
       ctx.fillRect(x1, y1, (x2 - x1), (y2 - y1));
+      ctx.stroke();
     },
 
     getCanvas: function () {
