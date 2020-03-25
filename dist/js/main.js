@@ -108,29 +108,29 @@ var draw = (function () {
     },
 
     //A setter for fill
-    setFillColor: function (color) {
+    setFillColor: function(color){
       fill = color;
-    },
+  },
 
-    //A getter for stroke
-    getStrokeColor: function () {
+  //A getter for stroke
+  getStrokeColor: function(){
 
-      if (stroke.length > 6) {
-        return stroke;
+      if(stroke.length > 6){
+          return stroke;
       }
 
       return this.randColor();
-    },
+  },
 
-    // //A getter for fill
-    // getFillColor: function () {
+  //A getter for fill
+  getFillColor: function(){
 
-    //   if (fill.length > 6) {
-    //     return fill;
-    //   }
+      if(fill.length > 6){
+          return fill;
+      }
 
-    //   return this.randColor();
-    // },
+      return this.randColor();
+  },
 
     //Draws the selected shape
     draw: function () {
@@ -204,11 +204,16 @@ var draw = (function () {
       ctx.stroke();
     },
 
+    // RECTANGLE
     //Draw a rectangle
     drawRect: function () {
-      ctx.fillStyle = this.getFillColor();
-      ctx.strokeStyle = this.getStrokeColor();
+      //Start by using random fill colors.
+      ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
       ctx.fillRect(x1, y1, (x2 - x1), (y2 - y1));
+
+      ctx.fill();
+      ctx.stroke();
     },
 
     getCanvas: function () {
